@@ -12,7 +12,7 @@
 #' @importFrom rjson toJSON
 #' @importFrom rjson fromJSON
 #' @examples
-#' WebMasterExternal()
+#' WebMasterPopular()
 
 WebMasterPopular <- function(token = NULL, host_id = NULL)
 {
