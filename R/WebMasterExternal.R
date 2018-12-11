@@ -56,6 +56,7 @@ WebMasterExternal <- function(token = NULL, host_id = NULL)
     packageStartupMessage(".", appendLF = F)
     
   }
+  packageStartupMessage(appendLF = T)
   packageStartupMessage("Processed ",length(result$source_url)," rows", appendLF = T)
   
   total_work_time <- round(difftime(Sys.time(), proc_start , units ="secs"),0)
