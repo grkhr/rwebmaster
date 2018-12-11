@@ -17,6 +17,7 @@
 WebMasterExternal <- function(token = NULL, host_id = NULL)
 {
   proc_start <- Sys.time()
+  packageStartupMessage("Processing", appendLF = F)
   query <- "https://api.webmaster.yandex.net/v3/user/"
   answer <- GET(url=query, add_headers(Authorization=paste0("OAuth ",token)))
   dataRaw <- content(answer, "parsed", "application/json")
@@ -52,9 +53,10 @@ WebMasterExternal <- function(token = NULL, host_id = NULL)
       }
       colnames(result) <- column_names
     }
-    packageStartupMessage("Processed ",length(result$source_url)," rows", appendLF = T)
+    packageStartupMessage(".", appendLF = F)
     
   }
+  packageStartupMessage("Processed ",length(result$source_url)," rows", appendLF = T)
   
   total_work_time <- round(difftime(Sys.time(), proc_start , units ="secs"),0)
   packageStartupMessage(paste0("Total time: ",total_work_time, " sec."))
